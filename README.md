@@ -7,7 +7,7 @@ Really useful for when you have Github-actions triggered by new Github-releases 
 
 ## Installation
 ```bash
-npm i --g jrelease
+npm i -g jrelease
 ```
 
 ## Changes from Vercel's "Release"
