@@ -1,7 +1,7 @@
 # jrelease
 Rewrite of [Vercel's release](https://github.com/vercel/release) (Generate changelogs with a single command)
 
-Creates a new Github-release with changelog based on commits since previous release. Useful for when you don't want to manually bump package.json, creating a Github-release in the browser and writing the changelog yourself.
+Creates a new Github-release with changelog based on commits since previous release. Useful for when you don't want to manually bump package.json, create a Github-release in the browser and write the changelog yourself.
 
 Really useful for when you have Github-actions triggered by new Github-releases :rocket:
 
