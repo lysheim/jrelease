@@ -179,8 +179,9 @@ const main = async () => {
       } catch (error) {
         fail(error)
       }
+    } else {
+      fail(error)
     }
-    fail(error)
   }
 
   if (global.spinner) global.spinner.succeed()
