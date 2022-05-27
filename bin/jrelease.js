@@ -127,14 +127,14 @@ const main = async () => {
   // Check where to start changelog from
   try {
     createSpinner('Checking where to start changelog from')
-    control.fromTag = await checkPrevTag(control.releases, control.tags.remote, control.repoDetails)
+    control.fromTag = await checkPrevTag(control.releases, control.tags.remote, control.repoDetails, control.flags.previousTag)
   } catch (error) {
     fail(error)
   }
 
   // Get commits from previous tag
   try {
-    createSpinner('Fetching commits since last release')
+    createSpinner(`Fetching commits since last release ${control.fromTag.tag}`)
     control.commits = getCommits(control.fromTag.hash)
   } catch (error) {
     fail(error)
