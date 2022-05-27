@@ -114,11 +114,11 @@ const invalidDetailsConfigs = [
 ]
 
 test('GetRepoDetails gets correct values for owner and repo', () => {
-  const details = getRepoDetails(validDetailsConfig.path)
+  const details = getRepoDetails(validDetailsConfig.path, true)
   expect(details.repoName).toBe(validDetailsConfig.expectedRes.repoName)
   expect(details.repoOwner).toBe(validDetailsConfig.expectedRes.repoOwner)
 
-  const details2 = getRepoDetails(validDetailsConfig2.path)
+  const details2 = getRepoDetails(validDetailsConfig2.path, true)
   expect(details2.repoName).toBe(validDetailsConfig2.expectedRes.repoName)
   expect(details2.repoOwner).toBe(validDetailsConfig2.expectedRes.repoOwner)
 })
@@ -126,7 +126,7 @@ test('GetRepoDetails gets correct values for owner and repo', () => {
 describe('Invalid urls throw error', () => {
   invalidDetailsConfigs.forEach(config => {
     test(config.desc, () => {
-      const fn = () => getRepoDetails(config.path)
+      const fn = () => getRepoDetails(config.path, true)
       expect(fn).toThrow()
     })
   })
