@@ -32,6 +32,10 @@ const validConfigs = [
   {
     path: `${testConfigPath}/configValid3`,
     desc: 'When config has a duplicate property but with same values within a top level property'
+  },
+  {
+    path: `${testConfigPath}/configValid4`,
+    desc: 'When config has a origin set with ssh url'
   }
 ]
 
@@ -53,8 +57,19 @@ const invalidConfigs = [
     desc: 'When config has a duplicate property with different values inside a top level property'
   },
   {
-    path: `${testConfigPath}/configInvalid5`,
+    path: `${testConfigPath}/configInvalid666`,
     desc: 'When config path does not exist'
+  }
+]
+
+const invalidUrlConfigs = [
+  {
+    path: `${testConfigPath}/configInvalid5`,
+    desc: 'When ssh url is set to gitlab'
+  },
+  {
+    path: `${testConfigPath}/configInvalid6`,
+    desc: 'When https url is set to gitlab'
   }
 ]
 
@@ -82,6 +97,26 @@ describe('Invalid configs throw error', () => {
   invalidConfigs.forEach(config => {
     test(config.desc, () => {
       const fn = () => parseGitconfig(config.path)
+      expect(fn).toThrow()
+    })
+  })
+})
+
+// Test getRepoDetails
+describe('Valid configs return as expected when running getRepoDetails', () => {
+  validConfigs.forEach(config => {
+    test(config.desc, () => {
+      const { repoName } = getRepoDetails(config.path, true)
+      expect(typeof repoName).toBe('string')
+      expect(repoName.length).toBeGreaterThan(0)
+    })
+  })
+})
+
+describe('InvalidUrlConfigs throw when running getRepoDetails', () => {
+  invalidUrlConfigs.forEach(config => {
+    test(config.desc, () => {
+      const fn = () => getRepoDetails(config.path, true)
       expect(fn).toThrow()
     })
   })
