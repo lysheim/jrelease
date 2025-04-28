@@ -5,6 +5,9 @@ Creates a new Github-release with changelog based on commits since previous rele
 
 Really useful for when you have Github-actions triggered by new Github-releases :rocket:
 
+> [!IMPORTANT]  
+> Versions from 1.1.0 requires minimum version of Node 22
+
 ## Installation
 ```bash
 npm i -g jrelease
