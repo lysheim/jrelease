@@ -15,6 +15,9 @@
     "release",
     "please"
   ],
+  "engines": {
+    "node": ">=22"
+  },
   "author": "jorgtho",
   "license": "MIT",
   "bin": {
