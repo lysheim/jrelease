@@ -1,4 +1,8 @@
 # jrelease
+
+> [!WARNING]
+> This package is deprecated and no longer maintained. Use [@vestfoldfylke/vfk-cli](https://www.npmjs.com/package/@vestfoldfylke/vfk-cli) instead. `vfk nilsrelease <"patch" | "minor" | "major">` replaces jrelease.
+
 Rewrite of [Vercel's release](https://github.com/vercel/release) (Generate changelogs with a single command)
 
 Creates a new Github-release with changelog based on commits since previous release. Useful for when you don't want to manually bump package.json, create a Github-release in the browser and write the changelog yourself.
